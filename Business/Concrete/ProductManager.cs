@@ -18,15 +18,19 @@ public class ProductManager : IProductService
         return _productDal.GetAll();
     }
 
-    public List<Product> GetAllByCategory(int categoryId)
+    public List<Product> GetAllByCategory(int id)
     {
-        throw new NotImplementedException();
+        return _productDal.GetAll(p=>p.CategoryId == id);
     }
-
-
+    
+    public List<Product> GetByUnitPrice(decimal min, decimal max)
+    {
+        return _productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max);
+    }
+    
     public void Add(Product product)
     {
-        throw new NotImplementedException();
+        _productDal.Add(product);
     }
 
     public void Delete(Product product)

@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework;
 
-public class EfProductDal : IProductDal
+public class EfCustomerDal : ICustomerDal
 {
-    public void Add(Product entity)
+    public void Add(Customer entity)
     {
         //IDispossable pattern implementation of C#
         using (var context = new NorthwindContext())
@@ -18,7 +18,7 @@ public class EfProductDal : IProductDal
         }
     }
 
-    public void Delete(Product entity)
+    public void Delete(Customer entity)
     {
         //IDispossable pattern implementation of C#
         using (var context = new NorthwindContext())
@@ -29,7 +29,7 @@ public class EfProductDal : IProductDal
         }
     }
 
-    public void Update(Product entity)
+    public void Update(Customer entity)
     {
         //IDispossable pattern implementation of C#
         using (var context = new NorthwindContext())
@@ -40,22 +40,21 @@ public class EfProductDal : IProductDal
         }
     }
 
-    public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+    public List<Customer> GetAll(Expression<Func<Customer, bool>> filter = null)
     {
         using (var context = new NorthwindContext())
         {
             return filter == null 
-                ? context.Set<Product>().ToList() 
-                : context.Set<Product>().Where(filter).ToList();
+                ? context.Set<Customer>().ToList() 
+                : context.Set<Customer>().Where(filter).ToList();
         }
-        
     }
 
-    public Product Get(Expression<Func<Product, bool>> filter)
+    public Customer Get(Expression<Func<Customer, bool>> filter)
     {
         using (var context = new NorthwindContext())
         {
-            return context.Set<Product>().SingleOrDefault(filter);
+            return context.Set<Customer>().SingleOrDefault(filter);
         }
     }
 }
