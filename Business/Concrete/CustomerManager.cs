@@ -1,23 +1,26 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using Entities.Concrete;
 
 namespace Business.Concrete;
 
 public class CustomerManager : ICustomerService
 {
-    public List<Customer> GetAll()
+    private readonly ICustomerDal _customerDal;
+
+    public CustomerManager(ICustomerDal customerDal)
     {
-        throw new NotImplementedException();
+        _customerDal = customerDal;
     }
 
-    public List<Customer> GetAllByCategory(int categoryId)
+    public List<Customer> GetAll()
     {
-        throw new NotImplementedException();
+        return _customerDal.GetAll();
     }
 
     public void Add(Customer customer)
     {
-        throw new NotImplementedException();
+        _customerDal.Add(customer);
     }
 
     public void Delete(Customer customer)
@@ -27,6 +30,6 @@ public class CustomerManager : ICustomerService
 
     public void Update(Customer customer)
     {
-        throw new NotImplementedException();
+        _customerDal.Update(customer);
     }
 }
