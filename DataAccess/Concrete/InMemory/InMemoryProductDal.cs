@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.InMemory;
 
@@ -40,6 +41,11 @@ public class InMemoryProductDal : IProductDal
     }
 
     public Product Get(Expression<Func<Product, bool>> filter)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<ProductDetailDto> GetProductDetails()
     {
         throw new NotImplementedException();
     }

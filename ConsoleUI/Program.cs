@@ -5,7 +5,7 @@ using Entities.Concrete;
 
 //ProductTest();
 //CategoryTest();
-CustomerTest();
+//CustomerTest();
 
 
 void CategoryTest()
